@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расклад таро</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="description" content="Расклад Таро">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="{{ url_for('static', filename='audio/background-music.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <button id="musicButton"></button>
+
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <img src="{{ url_for('static', filename='img/cross.png') }}" 
+                 alt="Закрыть" 
+                 class="close" 
+                 id="closeButton" onclick="closeModal()"> <!-- Кнопка закрытия -->
+            <div class="background"></div><!-- Фоновое изображение -->
+            <div class="Space"></div> 
+            <img src="{{ url_for('static', filename='img/Tarolog.png') }}" alt="Таролог" class="tarolog">
+            <img src="{{ url_for('static', filename='img/Text.png') }}" alt="Текст" class="text">
+            <div class="main-container"> 
+                <div class="button-container"> 
+                    <button class="but"onclick="location.href='{{ url_for('pay') }}';"></button> 
+                </div> 
+            </div>
+        </div>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
+
+    <header>
+        <img src="{{ url_for('static', filename='img/taro.png') }}" class="taro" alt="Taro">
+    </header>
+
+    <div class="sidebar">
+        <a href="#home">ГЛАВНАЯ</a>
+        <a href="#about-taro">О ТАРО</a>
+        <a href="#taro-online">ТАРО ОНЛАЙН</a>
+        <a href="#reviews">ОТЗЫВЫ</a>
+    </div>
+
+    <div class="main-container">
+        <div class="button-container">
+            <button class="cta-button ctaButtonAnimation" onclick="location.href='{{ url_for('shur') }}';"></button>
+        </div>
+    </div>
+
+    <div id="about-taro" class="section">
+        <div class="rounded-box">
+            <img src="{{ url_for('static', filename='img/about.png') }}" alt="Taro" style="max-width: 500px; height: auto; margin-bottom: 20px;">
+            <div class="text-center">
+                <img class="taro-image" src="{{ url_for('static', filename='img/p1.png') }}" alt="Taro">
+                <img class="taro-image" src="{{ url_for('static', filename='img/p2.png') }}" alt="Taro">
+                <img class="taro-image" src="{{ url_for('static', filename='img/p3.png') }}" alt="Taro">
+            </div>
+            <button class="cta-button ctaButtonAnimation" onclick="location.href='https://r.mtdv.me/giveaways/-wg9zDEDh0';"></button>
+        </div>
+    </div>
+
+    <div id="taro-online" class="section">
+        <div class="rounded-box">
+            <img src="{{ url_for('static', filename='img/online.png') }}" alt="Taro" style="max-width: 1000px; height: auto; margin-bottom: 20px;">
+            <h1>Выбери расклад:</h1>
+            <div class="card-deck">
+                <a href="javascript:void(0)" class="card" onclick="openModal1()">
+                    <img src="{{ url_for('static', filename='img/ras1.png') }}" alt="Расклад 1">
+                    <div class="card-body">
+                    </div>
+                </a> 
+                
+                <!-- Модальное окно -->
+                <div id="myModal1" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <img src="{{ url_for('static', filename='img/cross.png') }}" alt="Закрыть" class="close" onclick="closeModal1()"> <!-- Кнопка закрытия -->
+                        <div class="background"></div> <!-- Фоновое изображение -->
+                        <div class="Space"></div>
+                        <img src="{{ url_for('static', filename='img/Tarolog1.png') }}" alt="Таролог" class="tarolog">
+                        <img src="{{ url_for('static', filename='img/Text1.png') }}" alt="Текст" class="text">
+                        <div class="main-container"> 
+                            <div class="button-container"> 
+                                <button class="but" onclick="location.href='{{ url_for('pay') }}';"></button> 
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                
+                <script>
+                    // Открытие модального окна
+                    function openModal1() {
+                        document.getElementById("myModal1").style.display = "block";
+                    }
+                
+                    // Закрытие модального окна
+                    function closeModal1() {
+                        document.getElementById("myModal1").style.display = "none";
+                    }
+                
+                    // Закрытие модального окна при клике вне его содержимого
+                    window.onclick = function(event) {
+                        const modal = document.getElementById("myModal1");
+                        if (event.target === modal) {
+                            modal.style.display = "none";
+                        }
+                    };
+                </script>
+                <a href="link2.html" class="card">
+                    <img src="{{ url_for('static', filename='img/ras2.png') }}" alt="Расклад 2">
+                    <div class="card-body">
+                    </div>
+                </a>
+                <a href="link3.html" class="card">
+                    <img src="{{ url_for('static', filename='img/ras3.png') }}" alt="Расклад 3">
+                    <div class="card-body">
+                    </div>
+                </a>
+                <a href="{{ url_for('pay') }}" class="card">
+                    <img src="{{ url_for('static', filename='img/ras4.png') }}" alt="Расклад 4">
+                    <div class="card-body"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="reviews" class="section">
+        <div class="rounded-box d-flex">
+            <div class="reviews-container">
+            
+                <div class="reviews">
+                    {% for review in reviews %}
+                        <div class="review">
+                            <strong>{{ review[0] }}</strong>
+                            <p>{{ review[1] }}</p>
+                            <div class="rating-display">
+                                {% for i in range(1, 6) %}
+                                    {% if i <= review[2] %}
+                                        <label class="star filled">★</label> <!-- Звезда заполнена -->
+                                    {% else %}
+                                        <label class="star empty">☆</label> <!-- Звезда пустая -->
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <p>Отзывов пока нет.</p>
+                    {% endfor %}
+                </div>
+            </div>
+    
+            <div class="review-form">
+                <h2>Оставить отзыв</h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="name">Имя:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Электронная почта:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review">Ваш отзыв:</label>
+                        <textarea id="review" name="review" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group rating">
+                        
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5">★</label>
+                    </div>
+                    <div class="subscribe">
+                        <label>
+                            <input type="checkbox" id="subscribe" name="subscribe">
+                            Согласен получать рассылку на email
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-button"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+           
+    <footer>
+       
+        <div class="footer-content">
+            <div class="footer-left">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><img src="{{ url_for('static', filename='img/line.png') }}" alt="Line"></li>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about-taro">О таро</a></li>
+                    <li><a href="#taro-online">Таро онлайн</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <div class="contact-info">
+                    <h4>Связь с нами</h4>
+                    
+                    <ul>
+                        <li><img src="{{ url_for('static', filename='img/line.png') }}" alt="Line"></li>
+                        <li><a href="{{ url_for('about') }}">Контакты</a></li>
+                        <li><a href="1">Сотрудничество</a></li>
+                        <li>
+                            <div class="social-icons">
+                                <a href="javascript:void(0);" id="trigger">
+                                    <img src="{{ url_for('static', filename='img/inst.png') }}" alt="Иконка 1">
+                                  </a>
+                                  <div id="meta-container">
+                                    <img src="{{ url_for('static', filename='img/meta.png') }}" alt="Meta Image">
+                                  </div>
+
+                                <a href="https://t.me/tarotbezsms"><img src="{{ url_for('static', filename='img/tg.png') }}" alt="Иконка 2"></a>
+                                <a href="link1.html"><img src="{{ url_for('static', filename='img/wa.png') }}" alt="Иконка 3"></a>
+                            </div>
+                           
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+       
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

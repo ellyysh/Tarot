@@ -1,0 +1,272 @@
+@font-face {
+    font-family: karlo; 
+    src: url(fonts/karlo.otf); 
+}
+@font-face {
+     font-family: droid; 
+     src: url(fonts/DroidSansMono.ttf); 
+}
+
+* { 
+    box-sizing: border-box; 
+} 
+ 
+body { 
+    font-family: 'karlo', sans-serif; 
+    cursor: url('../img/cors.png'), auto;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+    min-height: 100vh; 
+    margin: 0; 
+    padding: 20px; 
+    background-color: black;  
+    color: white; 
+    text-align: center;
+} 
+
+a {
+    cursor: url('../img/tapcors.png'), auto;
+}
+
+button {
+    cursor: url('../img/tapcors.png'), auto;
+}
+
+button:hover {
+    cursor: url('../img/tapcors.png'), auto;
+}
+ 
+.taro { 
+    display: block; 
+    width: 550px; 
+    height: auto; 
+    margin-bottom: 100px;  
+    z-index: 2; 
+} 
+
+.text-image { 
+    display: block; 
+    width: 400px; 
+    height: auto; 
+    margin-bottom: 80px; 
+    z-index: 2; 
+} 
+ 
+.horizontal, .vertical { 
+    display: flex;  
+    justify-content: center; 
+    margin: 20px 0; 
+    z-index: 2; 
+} 
+ 
+.card-image { 
+    width: 600px; 
+    height: auto; 
+    border-radius: 10px; 
+    transition: opacity 0.5s ease, transform 0.5s ease;  
+    cursor: url('../img/tapcors.png'), auto;
+    z-index: 2; 
+} 
+
+.tarot-card { 
+    width: 90px; 
+    height: auto; 
+    margin: 0 10px; 
+    border-radius: 10px; 
+    z-index: 2; 
+} 
+
+.Space {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%; 
+    background-image: url('../img/Space.png');
+    background-size: cover; 
+    background-position: center; 
+    border-radius: 10px; 
+    z-index: 1; 
+}
+
+.overlay {
+    position: relative; 
+    width: 80%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+.window-image {
+    display: none; 
+    width: 100%; 
+    height: auto; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: 2; 
+    padding-bottom: 70px;
+    transform: scale(1.7); 
+    transform-origin: center; 
+}
+
+.window-text {
+    color: white; 
+    font-size: 20px; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, 40%); 
+    z-index: 3; 
+    display: none; 
+    padding: 10px; 
+    text-align: center; 
+    width: 95%; 
+}
+
+
+#cards-container { 
+    display: none; 
+} 
+
+.flying-card { 
+    cursor: url('../img/cors.png'), auto;
+    opacity: 0;  
+    transform: translateY(20px);  
+    transition: opacity 0.5s ease, transform 0.5s ease;  
+    position: relative;  
+    width: 350px;  
+    height: auto;  
+    margin: 0 10px;  
+    border-radius: 20px;  
+} 
+
+.flying-card.show { 
+    opacity: 1;  
+    transform: translateY(0);  
+} 
+
+.cards-row { 
+    display: none;  
+    justify-content: center;  
+    margin-top: 20px;  
+} 
+
+.cards-row.show { 
+    display: flex;  
+} 
+
+.main-container {  
+    flex-grow: 1;  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    padding-top: 20px;  
+}  
+
+.button-container {  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height: 100%;  
+}  
+ 
+.but {  
+    display: none;
+    padding: 15px 30px;  
+    background-image: url("../img/buttonras.png");  
+    background-size: cover;  
+    border: none;  
+    width: 320px;  
+    height: 75px; 
+    margin-top: 80px; 
+    cursor: url('../img/tapcors.png'), auto;
+    border-radius: 5px;
+    margin-bottom: 100px;
+    transition: opacity 0.5s ease, transform 0.5s ease;  
+    z-index: 3; 
+}
+
+.card-image:hover, .but:hover { 
+    transform: scale(1.05);  
+} 
+
+@media (max-width: 768px) { 
+    .taro, .text-image { 
+        width: 100%;  
+    } 
+
+    .card-image { 
+        width: 90%;  
+    } 
+
+    .flying-card { 
+        width: 120px; 
+    } 
+} 
+
+@media (max-width: 480px) { 
+    .taro { 
+        margin-bottom: 50px;  
+    } 
+
+    .text-image { 
+        margin-bottom: 40px;  
+    } 
+
+    .button-container { 
+        flex-direction: column;  
+    } 
+
+    .but { 
+        width: 100%;  
+        max-width: 320px;  
+    } 
+
+    .flying-card { 
+        width: 80px; 
+    } 
+}
+
+#typedText1, #typedText2 {
+    white-space: pre-wrap; 
+    display: inline-block; 
+    position: relative; 
+    margin-bottom: 20px; 
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 2em; 
+    background-color: white; 
+    margin-left: 2px; 
+    vertical-align: bottom;
+    animation: blink 0.75s infinite; 
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#musicButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px; 
+    height: 60px;
+    background-image: url('../img/music.png');
+    background-size: cover;
+    background-color: transparent; 
+    border: none; 
+    cursor: url('../img/tapcors.png'), auto;
+    z-index: 6; 
+    transition: opacity 0.3s ease; 
+}
+
+#musicButton:hover {
+    opacity: 0.7; 
+}

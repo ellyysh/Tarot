@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ШУРОПОВЕРТЫ ВЛАДИВОСТОК</title>
+    <style>
+        body {
+            background-color: pink;
+            color: purple;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: yellow;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: orange;
+            padding: 5px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 20px;
+            border: 2px solid green;
+            padding: 10px;
+        }
+        aside {
+            position: fixed;
+            top: 30%;
+            right: 20px;
+            width: 150px;
+            background-color: white;
+            padding: 10px;
+        }
+        footer {
+            background-color: cyan;
+            padding: 10px;
+            text-align: center;
+        }
+        img {
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='img/em.png') }}" style="height: 100px; float: left;">
+        <h1 style="margin: 0 auto;">ШУРОПОВЕРТЫ ВЛАДИВОСТОК</h1>
+        <img src="{{ url_for('static', filename='img/em1.png') }}" style="height: 100px; float: right;">
+    </header>
+    
+    <nav>
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Каталог</a>
+        <a href="#">Контакты</a>
+    </nav>
+
+    <main>
+        <img src="{{ url_for('static', filename='img/img13.jpg') }}">
+        <h2>Товары</h2>
+        <section>
+            <div>
+                <img src="{{ url_for('static', filename='img/img1.jpg') }}" alt="Изображение 1">
+                <h3>Шуруповерт POCOX3RTX360^)</h3>
+                <p>мощность - 500 Вт, скорость вращения - 1000 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img2.jpg') }}" alt="Изображение 1">
+                <h3>CARLOS SAINZ 23x1</h3>
+                <p>мощность - 32400 Вт, скорость вращения - 546600 об/мин.</p>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='img/img3.jpg') }}" alt="Изображение 1">
+                <h3>Шуруповерт Toto</h3>
+                <p>мощность - 45600 Вт, скорость вращения - 10 об/мин.</p>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='img/img4.jpg') }}" alt="Изображение 1">
+                <h3>Шуруповерт "Максим"</h3>
+                <p>мощность - 1000 Вт, скорость вращения - 4000 об/мин.</p>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='img/img5.jpg') }}" alt="Изображение 1">
+                <h3>Шуруповерт ProMaster</h3>
+                <p>Мощность - 600 Вт, скорость вращения - 1200 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img6.jpg') }}" alt="Изображение 2">
+                <h3>Шуруповерт UltraSpeed</h3>
+                <p>Мощность - 750 Вт, скорость вращения - 1500 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img7.jpg') }}" alt="Изображение 3">
+                <h3>Шуруповерт TurboTech</h3>
+                <p>Мощность - 700 Вт, скорость вращения - 1300 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img8.jpg') }}" alt="Изображение 4">
+                <h3>Шуруповерт SpeedMaster</h3>
+                <p>Мощность - 550 Вт, скорость вращения - 1100 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img9.jpg') }}" alt="Изображение 5">
+                <h3>Шуруповерт MegaForce</h3>
+                <p>Мощность - 800 Вт, скорость вращения - 1600 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img10.jpg') }}" alt="Изображение 6">
+                <h3>Шуруповерт RapidDrive</h3>
+                <p>Мощность - 680 Вт, скорость вращения - 1350 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img11.jpg') }}" alt="Изображение 7">
+                <h3>Шуруповерт PowerGrip</h3>
+                <p>Мощность - 620 Вт, скорость вращения - 1250 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img12.jpg') }}" alt="Изображение 8">
+                <h3>Шуруповерт TurboCharge</h3>
+                <p>Мощность - 730 Вт, скорость вращения - 1400 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img13.jpg') }}" alt="Изображение 9">
+                <h3>Шуруповерт ImpactSpeed</h3>
+                <p>Мощность - 680 Вт, скорость вращения - 1350 об/мин.</p>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/img14.jpg') }}" alt="Изображение 10">
+                <h3>Шуруповерт MegaDrive</h3>
+                <p>Мощность - 770 Вт, скорость вращения - 1450 об/мин.</p>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='img/img15.jpg') }}" alt="Изображение 1">
+                <h3>Шуруповерт Sone Turbo</h3>
+                <p>мощность - 500 Вт, скорость вращения - 1000 об/мин.</p>
+            </div>
+        </section>
+        
+        <h2>Контакты</h2>
+        <section>
+            <p>Адрес: ул. Иванова, д. 1</p>
+            <p>Телефон: 123-45-67</p>
+            <p>Email: example@example.com</p>
+        </section>
+    </main>
+
+    <aside>
+        <div>
+            <h3>Попали не туда?</h3>
+            <a href="{{ url_for('index') }}"><button>Вернуться назад</button></a>
+        </div>
+    </aside>
+
+    <footer>
+        <p>&copy; 2021 ШУРОПОВЕРТЫ ВЛАДИВОСТОК</p>
+    </footer>
+</body>
+</html>
