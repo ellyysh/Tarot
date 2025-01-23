@@ -59,30 +59,30 @@ def send_email(to_email, subject, body):
         print(f'Failed to send email to {to_email}: {e}')
 
 def save_review(name, email, review, rating, subscribe):
-    conn = sqlite3.connect('reviews.db')
+    # Подключаемся к текущей базе данных, указанной в конфигурации Flask
+    db_path = app.config.get('DATABASE', 'reviews.db')
+    conn = sqlite3.connect(db_path)
     c = conn.cursor()
 
-    # Список случайных отзывов
-    random_reviews = [
-        "Прекрасный сайт!",
-        "Очень понятный и удобный интерфейс!",
-        "Мне даже еще и заплатили за расклад!",
-        "Спасибо вам за спасенную судьбу",
-        "Профессионалы своего дела",
-        "Лучший сервис",
-        "Невероятно! Очень доволен",
-        "Еще не раз воспользуюсь услугой",
-        "ВЕЛИКОЛЕПНО",
-        "Расклад действительно сбылся, спасибо вам"
-    ]
+    # Если отзыв пустой, заменяем его на случайный из списка
+    if not review.strip():
+        random_reviews = [
+            "Прекрасный сайт!",
+            "Очень понятный и удобный интерфейс!",
+            "Мне даже еще и заплатили за расклад!",
+            "Спасибо вам за спасенную судьбу",
+            "Профессионалы своего дела",
+            "Лучший сервис",
+            "Невероятно! Очень доволен",
+            "Еще не раз воспользуюсь услугой",
+            "ВЕЛИКОЛЕПНО",
+            "Расклад действительно сбылся, спасибо вам"
+        ]
+        review = random.choice(random_reviews)
 
-    # Выбираем случайный отзыв
-    random_review = random.choice(random_reviews)
-    fixed_rating = 5
-
-    # Сохранение отзыва с фиксированным значением
+    # Сохраняем отзыв
     c.execute('INSERT INTO reviews (name, email, review, rating) VALUES (?, ?, ?, ?)',
-              (name, email, random_review, fixed_rating))
+              (name, email, review, rating))
 
     # Если пользователь согласен на рассылку, сохраняем его данные
     if subscribe:
@@ -90,7 +90,7 @@ def save_review(name, email, review, rating, subscribe):
 
         # После сохранения подписчика отправляем Email
         email_subject = "Thank you for your review!"
-        email_body = f"Здравствуйте {name},\n\nСпасибо за ваш отзыв:\n\n{random_review}\n\nМы рады, что вам понравилось!"
+        email_body = f"Здравствуйте {name},\n\nСпасибо за ваш отзыв:\n\n{review}\n\nМы рады, что вам понравилось!"
         send_email(email, email_subject, email_body)
 
     conn.commit()
